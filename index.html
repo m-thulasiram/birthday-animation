@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Lovie ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 0, 100, 0.7), 0 0 20px rgba(255, 0, 100, 0.5);
+      margin-bottom: 30px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6fa8, 0 0 20px #ff6fa8; }
+      to { text-shadow: 0 0 20px #ff2d55, 0 0 40px #ff2d55; }
+    }
+
+    .heart {
+      width: 200px;
+      animation: pulse 1.5s infinite;
+      filter: drop-shadow(0 0 15px rgba(255,0,100,0.6));
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .falling-heart {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10%); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, Lovie ❤️</h1>
+
+  <!-- Heart SVG -->
+  <svg class="heart" viewBox="0 0 512 512" fill="#ff2d55" xmlns="http://www.w3.org/2000/svg">
+    <path d="M256 464l-16-14C118 338 48 270 48 176 48 106 106 48 176 48c40 0 78 18 104 48 26-30 64-48 104-48 70 0 128 58 128 128 0 94-70 162-192 274l-16 14z"/>
+  </svg>
+
+  <!-- Falling hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.innerHTML = "❤️";
+      heart.classList.add("falling-heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
